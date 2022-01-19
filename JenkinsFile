@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
-        nodejs "my-nodejs"
+        nodejs "nodejs"
     }
 
     stages {
@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'COVID-19 Project GitHub Repository Code Checkout'
                 // Get some code from a GitHub repository
-                git 'https://github.com/swagat030/covid19-app.git'
+                git 'https://github.com/swagat030/covid-19-app.git'
                 
             }
         }
