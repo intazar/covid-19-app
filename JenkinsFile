@@ -15,7 +15,7 @@ pipeline {
                 
             }
         }
-        stage('Install dependency') {
+        stage('Install Dependency') {
             steps {
                 sh 'npm install'
                 sh 'npm update'
@@ -24,6 +24,8 @@ pipeline {
         stage('Build Phase') {
             steps {
                 echo 'Build Phase'
+                sh 'npx browserslist@latest --update-db'
+                sh 'ng build --prod'
                 //sh 'npm run build'
                 //sh 'npm update'
             }
