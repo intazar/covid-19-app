@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        nodejs "my-nodejs"
+    }
+
+    stages {
+        stage('Source Code Checkout') {
+            steps {
+                echo 'COVID-19 Project GitHub Repository Code Checkout'
+                // Get some code from a GitHub repository
+                git 'https://github.com/swagat030/covid19-app.git'
+                
+            }
+        }
+        stage('Install dependency') {
+            steps {
+                sh 'npm install'
+                sh 'npm update'
+            }
+        }
+        stage('Build Phase') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+        stage('Deployment Phase') {
+            steps {
+                echo 'Deployement is in progress'
+            }
+        }
+    }
+}
