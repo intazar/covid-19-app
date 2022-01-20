@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
-        nodejs "nodejs"
+        nodejs "nodejs-17.4.0"
     }
 
     stages {
@@ -18,16 +18,12 @@ pipeline {
         stage('Install Dependency') {
             steps {
                 sh 'npm install'
-                sh 'npm update'
             }
         }
         stage('Build Phase') {
             steps {
                 echo 'Build Phase'
-                sh 'npx browserslist@latest --update-db'
-                sh 'ng build --prod'
-                //sh 'npm run build'
-                //sh 'npm update'
+                sh 'npm run build'
             }
         }
         stage('Deployment Phase') {
