@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        // Install the Maven version configured as "M3" and add it to the path.
+        // Install the Node version configured tool
         nodejs "nodejs-17.4.0"
     }
 
