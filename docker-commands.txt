@@ -11,6 +11,9 @@ docker build -f Dockerfile -t covid19-app-latest .
 docker images
 
 5. Run the conatainer
-docker container run -d --name angular-app -p 4200:4200 covid19-app-latest
+docker container run -d --name angular-app -P covid19-app-latest
+
+6. Go to inspect the container check the host and port info. Run it on browser
+http://localhost:55000
 
 
