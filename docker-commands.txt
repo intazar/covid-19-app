@@ -1,0 +1,16 @@
+1. Download the Dependencies
+npm install
+
+2. Build the Project
+ng build --prod
+
+3. Build your Docker file 
+docker build -f Dockerfile -t covid19-app-latest .
+
+4. Check the image created or not
+docker images
+
+5. Run the conatainer
+docker container run -d --name angular-app -p 4200:4200 covid19-app-latest
+
+
