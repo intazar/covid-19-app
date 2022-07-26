@@ -3,15 +3,16 @@ pipeline {
 
     tools {
         // Install the Node version configured tool
-        nodejs "nodejs-17.4.0"
+        nodejs "my-nodejs"
+       // nodejs "nodejs-17.4.0"
     }
 
     stages {
         stage('Source Code Checkout') {
             steps {
                 echo 'COVID-19 Project GitHub Repository Code Checkout'
-                // Get some code from a GitHub repository
-                git 'https://github.com/swagat030/covid-19-app.git'
+                git 'https://github.com/intazar/covid-19-app.git'
+                //git 'https://github.com/swagat030/covid-19-app.git'
                 
             }
         }
@@ -23,7 +24,10 @@ pipeline {
         stage('Build Phase') {
             steps {
                 echo 'Build Phase'
+                sh 'npx browserslist@latest --update-db'
                 sh 'npm run build'
+                //sh 'ng build --prod'
+                //sh 'npm run build'
             }
         }
         stage('Deployment Phase') {
